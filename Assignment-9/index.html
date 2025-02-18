@@ -1,1 +1,121 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Appointment Booking System</title>
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Our Appointment Booking System</h1>
+        <p>Book your appointments with ease and convenience</p>
+    </header>
+
+    <section class="services">
+        <h2>Our Services</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <i class="fas fa-user-md"></i>
+                <h3>Doctor Consultation</h3>
+                <p>Book an appointment with our qualified doctors</p>
+                <button class="book-btn" data-service="Doctor">Book Appointment</button>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-cut"></i>
+                <h3>Salon Services</h3>
+                <p>Professional hair and beauty treatments</p>
+                <button class="book-btn" data-service="Salon">Book Appointment</button>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-car"></i>
+                <h3>Car Service</h3>
+                <p>Complete car maintenance and repair</p>
+                <button class="book-btn" data-service="Car Service">Book Appointment</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="appointments">
+        <h2>Your Appointments</h2>
+        <div class="appointments-controls">
+            <input type="text" id="searchAppointment" placeholder="Search appointments...">
+            <select id="filterStatus">
+                <option value="all">All Status</option>
+                <option value="pending">Pending</option>
+                <option value="confirmed">Confirmed</option>
+                <option value="cancelled">Cancelled</option>
+            </select>
+        </div>
+        <div class="appointments-list">
+            <!-- Appointments will be dynamically added here -->
+        </div>
+    </section>
+
+    <div class="modal" id="bookingModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Book Appointment</h2>
+            <form id="appointmentForm">
+                <div class="form-group">
+                    <label for="fullName">Full Name *</label>
+                    <input type="text" id="fullName" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email Address *</label>
+                    <input type="email" id="email" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number *</label>
+                    <input type="tel" id="phone" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="service">Select Service *</label>
+                    <select id="service" required>
+                        <option value="Doctor">Doctor Consultation</option>
+                        <option value="Salon">Salon Services</option>
+                        <option value="Car Service">Car Service</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="datetime">Preferred Date & Time *</label>
+                    <input type="datetime-local" id="datetime" required>
+                    <span class="error-message"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="requests">Special Requests</label>
+                    <textarea id="requests"></textarea>
+                </div>
+
+                <div class="form-group checkbox">
+                    <input type="checkbox" id="terms" required>
+                    <label for="terms">I agree to the terms and conditions *</label>
+                    <span class="error-message"></span>
+                </div>
+
+                <button type="submit">Submit Appointment</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="confirmationModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Appointment Confirmed!</h2>
+            <p id="confirmationMessage"></p>
+        </div>
+    </div>
+
+    <script src="index.js"></script>
+</body>
+</html>
